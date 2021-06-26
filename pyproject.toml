@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pptx-calendar-generator"
+version = "0.0.1"
+description = "A calendar generator for Microsoft PowerPoint"
+authors = ["Hirotaka Ichikawa <hichtakk@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+python-pptx = "^0.6.19"
+jpholiday = "^0.1.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
