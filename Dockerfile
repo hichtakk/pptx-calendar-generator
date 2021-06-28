@@ -10,4 +10,4 @@ FROM python:3.9-slim
 WORKDIR /work
 COPY --from=build /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
 COPY main.py /usr/local/bin/pptx-calendar
-CMD ["/usr/local/bin/pptx-calendar"]
+ENTRYPOINT ["/usr/local/bin/pptx-calendar"]
