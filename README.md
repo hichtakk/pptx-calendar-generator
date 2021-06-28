@@ -12,5 +12,5 @@ Just run with pre-build docker image and generate 12 month calender for specifie
 If you don't pass ${YEAR} argument, generator will build current year calendar.
 
 ```
-$ docker run -it --rm -v $(pwd):/work hichtakk/pptx-calendar-generator /usr/local/bin/pptx-calendar ${YEAR}
+$ docker run --rm --mount type=bind,src=$(pwd),dst=/work hichtakk/pptx-calendar-generator ${YEAR}
 ```
