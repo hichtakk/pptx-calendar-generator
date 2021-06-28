@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 
 from argparse import ArgumentParser
-import calendar
+from calendar import SUNDAY
+from calendar import month_name
+from calendar import monthcalendar, setfirstweekday
 from datetime import datetime
+
+import jpholiday
 
 from pptx import Presentation
 from pptx.util import Cm, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 
-import jpholiday
 
 SLIDE_WIDTH = 33.86
 SLIDE_HEIGHT = 19.05
@@ -19,7 +22,7 @@ VPOS = 2.54
 WIDTH = 30.56
 HEIGHT = 14.94
 
-HEADER_HEIGHT = 1.06
+HEADER_HEIGHT = 0.9
 DAY_HEIGHT = 2.86
 
 HEADER = RGBColor(26, 66, 138)
@@ -94,16 +97,16 @@ def run(year):
     prs = Presentation()
     prs.slide_width = Cm(SLIDE_WIDTH)
     prs.slide_height = Cm(SLIDE_HEIGHT)
-    calendar.setfirstweekday(calendar.SUNDAY)
+    setfirstweekday(SUNDAY)
     title_only_slide_layout = prs.slide_layouts[5]
     for month in range(1, 13):
-        cal = calendar.monthcalendar(year, month)
+        cal = monthcalendar(year, month)
         slide = prs.slides.add_slide(title_only_slide_layout)
         slide.shapes.title.text = '{}/{}'.format(year, month)
         format_title(slide.shapes.title)
         holidays = jpholiday.month_holidays(year, month)
         if len(holidays):
-            print('{} has {} holidays'.format(calendar.month_name[month], len(holidays)))
+            print('{} has {} holidays'.format(month_name[month], len(holidays)))
             for holiday in holidays:
                 print('  {}/{:02d}/{:02d}  {}'.format(holiday[0].year, holiday[0].month, holiday[0].day, holiday[1]))
         generate_monthly_calendar(slide, cal, holidays)
