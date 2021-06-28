@@ -14,6 +14,8 @@ from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 
 
+VERSION = 'v0.0.2'
+
 SLIDE_WIDTH = 33.86
 SLIDE_HEIGHT = 19.05
 
@@ -31,12 +33,12 @@ BLUE = RGBColor(0, 145, 218)
 BG_WEEKDAY = RGBColor(242, 242, 242)
 BG_WEEKEND = RGBColor(217, 217, 217)
 
-DAY_OF_WEEK = ["日", "月", "火", "水", "木", "金", "土"]
+DAY_OF_WEEK = ['日', '月', '火', '水', '木', '金', '土']
 FONT_NAME = 'Meiryo'
 FONT_SIZE = 12
 
 parser = ArgumentParser()
-parser.add_argument("year", type=int, nargs='?', default=datetime.now().year, help="year of calendar target")
+parser.add_argument('year', type=int, nargs='?', default=datetime.now().year, help='year of calendar target')
 
 
 def format_title(title):
@@ -84,7 +86,7 @@ def generate_monthly_calendar(slide, cal, holidays):
                     format_cell(table.cell(w_idx + 1, d_idx), False, BG_WEEKDAY)
                 holiday = list(filter(lambda x: x[0].day == day, holidays))
                 if len(holiday):
-                    table.cell(w_idx + 1, d_idx).text += "\n" + holiday[0][1]
+                    table.cell(w_idx + 1, d_idx).text += '\n' + holiday[0][1]
                     format_cell(table.cell(w_idx + 1, d_idx), RED, BG_WEEKEND)
             else:
                 table.cell(w_idx + 1, d_idx).text = '-'

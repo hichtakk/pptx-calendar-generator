@@ -1,7 +1,8 @@
 .PHONY: docker push clean
 
 DOCKER_REPOSITORY := hichtakk/pptx-calendar-generator
-IMAGE_VERSION := v0.0.1
+IMAGE_VERSION := $(lastword $(shell grep 'VERSION =' main.py))
+
 
 docker:
 	@docker build -t $(DOCKER_REPOSITORY):$(IMAGE_VERSION) .
