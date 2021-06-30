@@ -1,7 +1,7 @@
 pptx-calendar-generator
 =======================
 
-[![container repository](https://img.shields.io/badge/docker-0.0.1-blue)](https://hub.docker.com/r/hichtakk/pptx-calendar-generator)  
+[![docker](https://img.shields.io/docker/v/hichtakk/pptx-calendar-generator?sort=semver&color=blue)](https://hub.docker.com/r/hichtakk/pptx-calendar-generator)  [![license](https://img.shields.io/github/license/hichtakk/pptx-calendar-generator)]()
 
 Calendar generator for MS PowerPoint.
 
