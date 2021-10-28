@@ -14,7 +14,7 @@ from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 
 
-VERSION = 'v0.0.2'
+VERSION = 'v0.0.3'
 
 SLIDE_WIDTH = 33.86
 SLIDE_HEIGHT = 19.05
